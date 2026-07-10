@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 
 # Creating a dataframe from the csv file.
-df_data = pd.read_csv('../data/kidney_disease.csv')
+df_data = pd.read_csv('data/kidney_disease.csv')
 
 # Dropping the 'id' column as pationt id will not determine the presence of CKD.
 df_data.drop('id', axis=1, inplace=True)
@@ -61,7 +61,3 @@ df_data['coronary_artery_disease']=df_data['coronary_artery_disease'].map({'yes'
 df_data['appetite']=df_data['appetite'].map({'good':1, 'poor':0})
 df_data['pedal_edema']=df_data['pedal_edema'].map({'yes':1, 'no':0})
 df_data['anemia']=df_data['anemia'].map({'yes':1, 'no':0})
-
-
-df_data.info()
-df_data.describe()
