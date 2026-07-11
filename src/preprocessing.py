@@ -1,8 +1,11 @@
-# Requirements - Pandas, Numpy
+# Requirements - Pandas, Numpy, Scikit-learn
 
 # Importing required libraries.
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from joblib import dump
 
 # Creating a dataframe from the csv file.
 df_data = pd.read_csv('data/kidney_disease.csv')
@@ -61,3 +64,20 @@ df_data['coronary_artery_disease']=df_data['coronary_artery_disease'].map({'yes'
 df_data['appetite']=df_data['appetite'].map({'good':1, 'poor':0})
 df_data['pedal_edema']=df_data['pedal_edema'].map({'yes':1, 'no':0})
 df_data['anemia']=df_data['anemia'].map({'yes':1, 'no':0})
+
+# Standardizing numerical columns
+scaler = StandardScaler()
+df_data[num_cols] = scaler.fit_transform(df_data[num_cols])
+
+# Testing and training data split
+x=df_data.drop("class", axis=1)
+y=df_data["class"]
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=25)
+
+# Saving the preprocessed data to csv files for future use.
+df_data.to_csv('data/cleaned_kidney_disease.csv', index=False)# Saving the cleaned data to a csv file.
+x_train.to_csv('data/x_train.csv', index=False)
+x_test.to_csv('data/x_test.csv', index=False)
+y_train.to_csv('data/y_train.csv', index=False)
+y_test.to_csv('data/y_test.csv', index=False)
+dump(scaler, "data/scaler.joblib")#saving the scaler object for future use in model deployment.
