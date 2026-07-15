@@ -19,7 +19,7 @@ df_data.columns=['age', 'blood_pressure', 'specific_gravity', 'albumin', 'sugar'
 # Numerical columns that are stored as string.
 text_columns=['packed_cell_volume', 'white_blood_cell_count', 'red_blood_cell_count']
 
-#Converting the numerical columns that are stored as string to numeric values.
+# Converting the numerical columns that are stored as string to numeric values.
 def convert_to_numeric(columns):
     for i in columns:
         df_data[i] = pd.to_numeric(df_data[i], errors='coerce')
@@ -80,4 +80,4 @@ x_train.to_csv('data/x_train.csv', index=False)
 x_test.to_csv('data/x_test.csv', index=False)
 y_train.to_csv('data/y_train.csv', index=False)
 y_test.to_csv('data/y_test.csv', index=False)
-dump(scaler, "data/scaler.joblib")#saving the scaler object for future use in model deployment.
+dump(scaler, "data/scaler.joblib")# Saving the scaler object for future use in model deployment.

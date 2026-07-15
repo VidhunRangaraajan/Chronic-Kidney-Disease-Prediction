@@ -32,5 +32,5 @@ for name, model in models:
     model.fit(x_train, y_train)
     y_pred = model.predict(x_test)
     
-    #Saving the trained model
+    # Saving the trained model
     dump(model, f"results/{name.replace(' ', '_').lower()}.joblib")
