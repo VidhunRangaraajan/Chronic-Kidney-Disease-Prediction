@@ -7,9 +7,17 @@ import matplotlib.pyplot as plt
 from joblib import load
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 
-# Loading the test dataset.
+# Loading the datasets.
 x_test = pd.read_csv("data/x_test.csv")
 y_test = pd.read_csv("data/y_test.csv")
+df = pd.read_csv("data/cleaned_kidney_disease.csv")
+
+# Plotting the correlation heatmap of the cleaned dataset.
+plt.figure(figsize=(15,8))
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.savefig("results/correlation_heatmap.png", dpi=300, bbox_inches="tight")
+plt.close()
 
 # Saving the model's file path in a list.
 files = [
