@@ -1,6 +1,6 @@
-# Requirements - pandas, scikit-learn, joblib
+# Requirements - pandas, scikit-learn, joblib.
 
-# Imports the necessary libraries
+# Imports the necessary libraries.
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -9,7 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from joblib import dump
 
-# Adding models to the list
+# Adding models to the list.
 models = []
 models.append(('Decision Tree Classifier', DecisionTreeClassifier(random_state=42)))
 models.append(('Gaussian Naive Bayes', GaussianNB()))
@@ -18,19 +18,19 @@ models.append(('Random Forest Classifier', RandomForestClassifier(random_state=4
 models.append(('Support Vector Machine', SVC(kernel='linear')))
 
 
-# Load datasets
+# Load datasets.
 x_train = pd.read_csv("data/x_train.csv")
 y_train = pd.read_csv("data/y_train.csv")
 x_test = pd.read_csv("data/x_test.csv")
 y_test = pd.read_csv("data/y_test.csv")
 
-# Training each model and saving the trained model
+# Training each model and saving the trained model.
 for name, model in models:
     
-    # Train the model
+    # Training the model.
     print(f"Training {name}...")# Displays the name of the model being trained.
     model.fit(x_train, y_train)
     y_pred = model.predict(x_test)
     
-    # Saving the trained model
+    # Saving the trained model.
     dump(model, f"results/{name.replace(' ', '_').lower()}.joblib")

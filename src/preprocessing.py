@@ -1,4 +1,4 @@
-# Requirements - pandas, numpy, scikit-learn
+# Requirements - pandas, numpy, scikit-learn.
 
 # Importing required libraries.
 import pandas as pd
@@ -47,12 +47,12 @@ for col_name in num_cols:
 for col_name in cat_cols:
     mode_value_imputation(df_data, col_name)
     
-# Replacing categorical values with consistent formatting
+# Replacing categorical values with consistent formatting.
 df_data['diabetes_mellitus'] = df_data['diabetes_mellitus'].replace(to_replace={' yes':'yes', '\tyes':'yes','\tno':'no'})
 df_data['coronary_artery_disease'] = df_data['coronary_artery_disease'].replace(to_replace='\tno', value='no')
 df_data['class'] = df_data['class'].replace(to_replace='ckd\t', value='ckd')
 
-# Replacing categorical values with numerical values
+# Replacing categorical values with numerical values.
 df_data['class']=df_data['class'].map({'ckd':1, 'notckd':0})
 df_data['red_blood_cells']=df_data['red_blood_cells'].map({'abnormal':0, 'normal':1})
 df_data['pus_cell']=df_data['pus_cell'].map({'abnormal':0, 'normal':1})
@@ -65,11 +65,11 @@ df_data['appetite']=df_data['appetite'].map({'good':1, 'poor':0})
 df_data['pedal_edema']=df_data['pedal_edema'].map({'yes':1, 'no':0})
 df_data['anemia']=df_data['anemia'].map({'yes':1, 'no':0})
 
-# Standardizing numerical columns
+# Standardizing numerical columns.
 scaler = StandardScaler()
 df_data[num_cols] = scaler.fit_transform(df_data[num_cols])
 
-# Testing and training data split
+# Testing and training data split.
 x=df_data.drop("class", axis=1)
 y=df_data["class"]
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=25)
