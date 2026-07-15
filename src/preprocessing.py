@@ -1,4 +1,4 @@
-# Requirements - Pandas, Numpy, Scikit-learn
+# Requirements - pandas, numpy, scikit-learn
 
 # Importing required libraries.
 import pandas as pd

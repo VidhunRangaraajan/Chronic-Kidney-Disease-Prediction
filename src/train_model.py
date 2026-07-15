@@ -1,4 +1,4 @@
-#Requirements - pandas, scikit-learn, joblib
+# Requirements - pandas, scikit-learn, joblib
 
 # Imports the necessary libraries
 import pandas as pd

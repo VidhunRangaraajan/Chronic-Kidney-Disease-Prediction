@@ -1,0 +1,51 @@
+Model,Accuracy,Precision,Recall,F1,Classification Report
+Decision Tree Classifier,0.97,0.9700347222222223,0.97,0.9699126307841658,"
+              precision    recall  f1-score   support
+
+           0       0.97      0.95      0.96        37
+           1       0.97      0.98      0.98        63
+
+    accuracy                           0.97       100
+   macro avg       0.97      0.97      0.97       100
+weighted avg       0.97      0.97      0.97       100
+"
+Gaussian Naive Bayes,0.95,0.955952380952381,0.95,0.950549220629773,"
+              precision    recall  f1-score   support
+
+           0       0.88      1.00      0.94        37
+           1       1.00      0.92      0.96        63
+
+    accuracy                           0.95       100
+   macro avg       0.94      0.96      0.95       100
+weighted avg       0.96      0.95      0.95       100
+"
+K-Nearest Neighbors,0.95,0.955952380952381,0.95,0.950549220629773,"
+              precision    recall  f1-score   support
+
+           0       0.88      1.00      0.94        37
+           1       1.00      0.92      0.96        63
+
+    accuracy                           0.95       100
+   macro avg       0.94      0.96      0.95       100
+weighted avg       0.96      0.95      0.95       100
+"
+Random Forest Classifier,0.98,0.9806153846153847,0.98,0.9798784722222222,"
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97        37
+           1       0.97      1.00      0.98        63
+
+    accuracy                           0.98       100
+   macro avg       0.98      0.97      0.98       100
+weighted avg       0.98      0.98      0.98       100
+"
+Support Vector Machine,0.96,0.96,0.96,0.96,"
+              precision    recall  f1-score   support
+
+           0       0.95      0.95      0.95        37
+           1       0.97      0.97      0.97        63
+
+    accuracy                           0.96       100
+   macro avg       0.96      0.96      0.96       100
+weighted avg       0.96      0.96      0.96       100
+"
