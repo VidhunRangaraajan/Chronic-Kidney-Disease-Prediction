@@ -10,6 +10,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 # Loading the datasets.
 x_test = pd.read_csv("data/x_test.csv")
 y_test = pd.read_csv("data/y_test.csv")
+y_mode = pd.read_csv("results/y_mode.csv")
 df = pd.read_csv("data/cleaned_kidney_disease.csv")
 
 # Plotting the correlation heatmap of the cleaned dataset.
@@ -32,14 +33,11 @@ files = [
 models = {}
 for file in files:
     model_name = file.replace(".joblib", "").replace("_", " ").title()
-    models[model_name] = load(file)
+    models[model_name[8:]] = load(file)
 
 # Evaluating the models.
 metrics = []
 for name, model in models.items():
-    
-    # Changing the file path to file name.
-    name = name[8::]
     
     # Printing the name of the model being evaluated and finding the predicted value for the test dataset.
     print(f"Evaluating {name}...")
@@ -62,6 +60,27 @@ for name, model in models.items():
     plt.ylabel("Actual")
     plt.savefig(f"results/{name}_confusion_matrix.png")
     plt.close()
+
+# Printing the name of the model being evaluated and finding the predicted value for the test dataset.
+print("Evaluating mode of predictions...")
+
+# Taking evaluation metrics.
+acc = accuracy_score(y_test, y_mode)
+prec = precision_score(y_test, y_mode, average="weighted")
+rec = recall_score(y_test, y_mode, average="weighted")
+f1 = f1_score(y_test, y_mode, average="weighted")
+report = classification_report(y_test, y_mode)
+metrics.append(['mode of pred', acc, prec, rec, f1, "\n" + report])
+
+# Finding Confusion Matrix Heatmap.
+cm = confusion_matrix(y_test, y_mode)
+plt.figure(figsize=(6,4))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+plt.title("Confusion Matrix - Mode Of Predictions")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.savefig("results/mode_pred_confusion_matrix.png")
+plt.close()
 
 # Saving the metrics to a CSV file.
 df = pd.DataFrame(metrics, columns=["Model", "Accuracy", "Precision", "Recall", "F1", "Classification Report"])
