@@ -1,0 +1,61 @@
+Model,Accuracy,Precision,Recall,F1,Classification Report
+Extra Trees Classifier,1.0,1.0,1.0,1.0,"
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        37
+           1       1.00      1.00      1.00        63
+
+    accuracy                           1.00       100
+   macro avg       1.00      1.00      1.00       100
+weighted avg       1.00      1.00      1.00       100
+"
+Lightgbm,0.99,0.99015625,0.99,0.9899708769280552,"
+              precision    recall  f1-score   support
+
+           0       1.00      0.97      0.99        37
+           1       0.98      1.00      0.99        63
+
+    accuracy                           0.99       100
+   macro avg       0.99      0.99      0.99       100
+weighted avg       0.99      0.99      0.99       100
+"
+Mlp Classifier,0.99,0.9902631578947368,0.99,0.9900266666666667,"
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.99        37
+           1       1.00      0.98      0.99        63
+
+    accuracy                           0.99       100
+   macro avg       0.99      0.99      0.99       100
+weighted avg       0.99      0.99      0.99       100
+"
+Support Vector Machine,0.99,0.9902631578947368,0.99,0.9900266666666667,"
+              precision    recall  f1-score   support
+
+           0       0.97      1.00      0.99        37
+           1       1.00      0.98      0.99        63
+
+    accuracy                           0.99       100
+   macro avg       0.99      0.99      0.99       100
+weighted avg       0.99      0.99      0.99       100
+"
+Xgboost,0.98,0.9806153846153847,0.98,0.9798784722222222,"
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97        37
+           1       0.97      1.00      0.98        63
+
+    accuracy                           0.98       100
+   macro avg       0.98      0.97      0.98       100
+weighted avg       0.98      0.98      0.98       100
+"
+mode of pred,1.0,1.0,1.0,1.0,"
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        37
+           1       1.00      1.00      1.00        63
+
+    accuracy                           1.00       100
+   macro avg       1.00      1.00      1.00       100
+weighted avg       1.00      1.00      1.00       100
+"

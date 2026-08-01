@@ -8,11 +8,11 @@ y_test = pd.read_csv("data/y_test.csv")
 
 # Saving the model's file path in a list.
 files = [
-    "results/decision_tree_classifier.joblib",
-    "results/gaussian_naive_bayes.joblib",
-    "results/k-nearest_neighbors.joblib",
-    "results/random_forest_classifier.joblib",
-    "results/support_vector_machine.joblib"
+    "results/extra_trees_classifier.joblib",
+    "results/lightgbm.joblib",
+    "results/mlp_classifier.joblib",
+    "results/support_vector_machine.joblib",
+    "results/xgboost.joblib"
 ]
 
 # Loading the models and saving it in a dictionary.
@@ -26,15 +26,15 @@ def predict(model):
     y_pred = model.predict(x_test)
     return y_pred
 
-DTC = predict(models["Decision Tree Classifier"])
-GNB = predict(models["Gaussian Naive Bayes"])
-KNN = predict(models["K-Nearest Neighbors"])
-RFC = predict(models["Random Forest Classifier"])
+ETC = predict(models["Extra Trees Classifier"])
+LGBM = predict(models["Lightgbm"])
+MLP = predict(models["Mlp Classifier"])
 SVM = predict(models["Support Vector Machine"])
+XGB = predict(models["Xgboost"])
 
 y_mode = []
-for i in range(len(DTC)):
-    j=statistics.mode([DTC[i],GNB[i],KNN[i],RFC[i],SVM[i]])
+for i in range(len(ETC)):
+    j=statistics.mode([ETC[i],LGBM[i],MLP[i],SVM[i],XGB[i]])
     y_mode.append(int(j))
     
 df = pd.DataFrame(y_mode, columns=["Prediction"])

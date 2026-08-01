@@ -22,11 +22,11 @@ plt.close()
 
 # Saving the model's file path in a list.
 files = [
-    "results/decision_tree_classifier.joblib",
-    "results/gaussian_naive_bayes.joblib",
-    "results/k-nearest_neighbors.joblib",
-    "results/random_forest_classifier.joblib",
-    "results/support_vector_machine.joblib"
+    "results/extra_trees_classifier.joblib",
+    "results/lightgbm.joblib",
+    "results/mlp_classifier.joblib",
+    "results/support_vector_machine.joblib",
+    "results/xgboost.joblib"
 ]
 
 # Loading the models and saving it in a dictionary.
