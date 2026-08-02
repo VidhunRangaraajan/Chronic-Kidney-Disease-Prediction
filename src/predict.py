@@ -1,4 +1,4 @@
-# Requirements - pandas, joblib, scikit-learn, xgboost, lightgbm.
+# Requirements - pandas, joblib.
 
 # Importing necessary libraries.
 import pandas as pd
@@ -74,6 +74,8 @@ def _load_scaler():
 def preprocess(raw_data):
     
     df = pd.DataFrame([raw_data]) if isinstance(raw_data, dict) else raw_data.copy()
+    
+    df[NUMERIC_COLUMNS] = df[NUMERIC_COLUMNS].apply(pd.to_numeric, errors="coerce")
 
     # Applying categorical to numeric mappings.
     for col, mapping in CATEGORICAL_MAPS.items():
