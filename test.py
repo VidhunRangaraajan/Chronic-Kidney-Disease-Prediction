@@ -1,4 +1,20 @@
+# test.py
+# Description: This file is used to test the predict_mode function from the src/predict module.
+# Author: Vidhun Rangaraajan J
+# Website: https://www.vidhun.com
+# Github: https://github.com/VidhunRangaraajan
+# Repository: https://github.com/VidhunRangaraajan/Chronic-Kidney-Disease-Prediction
+# Requirements: None directly(uses predict_mode function from src/predict.py)
+# Usage: To check the functionality of the predict_mode function with sample inputs from out of the file.
+# Depends On: src/predict.py
+# Input Files: -
+# Output Files: -
+# Notes: The parameters given for the catogorical columns shows both the possible stings that can be passed to each catogorical column and any int/float can be passed to the numeric data respectively.
+# To Do: -
+
+# Importing the predict_mode function from the "src/predict.py" module/file.
 from src.predict import predict_mode
+
 print(predict_mode({
   "age": "65",
   "blood_pressure": "150",
@@ -25,7 +41,7 @@ print(predict_mode({
   "pedal_edema": "yes",
   "anemia": "yes",
 }
-))
+))#Output Sample 1: ['CKD', 1, 1, 1, 1, 1]
 
 print(predict_mode({
   "age": "40",
@@ -53,4 +69,6 @@ print(predict_mode({
   "pedal_edema": "no",
   "anemia": "no",
 }
-))
+))# Output Sample 2: ['Not CKD', 0, 0, 0, 0, 0]
+
+# In the output ["Final by taking the mode of the predictions", 1('CKD')/0('Not CKD') of the best model, 1/0(model-2) , 1/0(model-3), 1/0(model-4), 1/0(model-5)].
