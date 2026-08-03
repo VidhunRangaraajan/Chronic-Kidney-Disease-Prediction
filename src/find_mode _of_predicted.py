@@ -9,7 +9,7 @@
 # Depends On: -
 # Input Files: data/x_test.csv, data/y_test.csv, results/extra_trees_classifier.joblib, results/lightgbm.joblib, results/mlp_classifier.joblib, results/support_vector_machine.joblib, results/xgboost.joblib
 # Output Files: results/y_mode.csv
-# Notes: -
+# Notes: Run the preprocessing.py, followed by train_model.py first.
 # To Do: Need to add by howmuch time the models are agreeing with each other in the prediction and how much models does't agree by how much time.
 
 # Importing the required libraries.

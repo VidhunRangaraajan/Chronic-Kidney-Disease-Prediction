@@ -1,4 +1,16 @@
-# Requirements - pandas, seaborn, matplotlib, joblib, scikit-learn.
+# evaluate.py
+# Description: Takes evaluation metrics, correlation heatmap and confusion matrix of the trained models and mode of the predictions and saves it in a CSV file and PNG files.
+# Author: Vidhun Rangaraajan J
+# Website: https://www.vidhun.com
+# Github: https://github.com/VidhunRangaraajan
+# Repository: https://github.com/VidhunRangaraajan/Chronic-Kidney-Disease-Prediction
+# Requirements: pandas, seaborn, matplotlib, joblib, scikit-learn.
+# Usage: To evaluate the performance of the trained models.
+# Depends On: -
+# Input Files: data/x_test.csv, data/y_test.csv, results/y_mode.csv, data/cleaned_kidney_disease.csv, results/extra_trees_classifier.joblib, results/lightgbm.joblib, results/mlp_classifier.joblib, results/support_vector_machine.joblib, results/xgboost.joblib
+# Output Files: results/metrics.csv, results/correlation_heatmap.png, results/mode_pred_confusion_matrix.png, results/{model name}_confusion_matrix.png
+# Notes: Run the preprocessing.py, followed by train_model.py and find_mode_of_predicted.py first.
+# To Do: -
 
 # Importing necessary libraries.
 import pandas as pd
@@ -61,7 +73,7 @@ for name, model in models.items():
     plt.savefig(f"results/{name}_confusion_matrix.png")
     plt.close()
 
-# Printing the name of the model being evaluated and finding the predicted value for the test dataset.
+# Printing the name of the model being evaluated.
 print("Evaluating mode of predictions...")
 
 # Taking evaluation metrics.

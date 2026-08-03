@@ -1,8 +1,19 @@
-# Requirements - pandas, numpy, scikit-learn.
+# preprocessing.py
+# Description: The unwanted columns are dropped, the column names are renamed, converting the misidentified column types nd filling the null values,converting catogorical columns to 1/0, scalling the data and spliting the data to test and training sets.
+# Author: Vidhun Rangaraajan J
+# Website: https://www.vidhun.com
+# Github: https://github.com/VidhunRangaraajan
+# Repository: https://github.com/VidhunRangaraajan/Chronic-Kidney-Disease-Prediction
+# Requirements: pandas, scikit-learn, joblib.
+# Usage: To clean the data and split it into training and testing sets.
+# Depends On: -
+# Input Files: data/kidney_disease.csv
+# Output Files: data/cleaned_kidney_disease.csv, data/scaler.joblib, data/x_train.csv, data/x_test.csv, data/y_train.csv, data/y_test.csv
+# Notes: -
+# To Do: -
 
 # Importing required libraries.
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from joblib import dump
@@ -16,27 +27,25 @@ df_data.drop('id', axis=1, inplace=True)
 # Renaming the columns for better understanding and readability.
 df_data.columns=['age', 'blood_pressure', 'specific_gravity', 'albumin', 'sugar', 'red_blood_cells', 'pus_cell', 'pus_cell_clumps', 'bateria', 'blood_glucose_random', 'blood_urea', 'serum_creatinine', 'sodium', 'potassium', 'haemoglobin', 'packed_cell_volume', 'white_blood_cell_count', 'red_blood_cell_count', 'hypertension', 'diabetes_mellitus', 'coronary_artery_disease', 'appetite', 'pedal_edema', 'anemia','class']
 
-# Numerical columns that are stored as string.
+# List of numerical columns that are stored as string.
 text_columns=['packed_cell_volume', 'white_blood_cell_count', 'red_blood_cell_count']
 
 # Converting the numerical columns that are stored as string to numeric values.
-def convert_to_numeric(columns):
-    for i in columns:
-        df_data[i] = pd.to_numeric(df_data[i], errors='coerce')
-convert_to_numeric(text_columns)
+for i in text_columns:
+    df_data[i] = pd.to_numeric(df_data[i], errors='coerce')
 
-# Function to fill the null values in numerical columns with mean value of the respective column.
+# Function to fill the null values in numerical columns with mean value of the respective column which takes the dataframe and list of columns as parameters.
 def mean_value_imputation(df_data, column):
     mean_values = df_data[column].mean()
     df_data[column]=df_data[column].fillna(mean_values)
 
-# Function to fill the null values in categorical columns with mode value of the respective column.
+# Function to fill the null values in categorical columns with mode value of the respective column which takes the dataframe and list of columns as parameters.
 def mode_value_imputation(df_data, column):
     mode_values = df_data[column].mode()[0]
     df_data[column]=df_data[column].fillna(mode_values)
 
 # Identifying numerical or categorical column and adding it to the respective list.
-num_cols=[col for col in df_data.columns if df_data[col].dtype in ['float64']]
+num_cols=[col for col in df_data.columns if df_data[col].dtype == 'float64']
 cat_cols=[col for col in df_data.columns if df_data[col].dtype == 'str']
 
 # Filling the null values in numerical columns with mean value of the respective column.
@@ -65,16 +74,16 @@ df_data['appetite']=df_data['appetite'].map({'good':1, 'poor':0})
 df_data['pedal_edema']=df_data['pedal_edema'].map({'yes':1, 'no':0})
 df_data['anemia']=df_data['anemia'].map({'yes':1, 'no':0})
 
-# Standardizing numerical columns.
+# Standardizing columns.
 scaler = StandardScaler()
 df_data[num_cols] = scaler.fit_transform(df_data[num_cols])
 
-# Testing and training data split.
+# Splitting the data into training and testing sets.
 x=df_data.drop("class", axis=1)
 y=df_data["class"]
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.25, random_state=25)
 
-# Saving the preprocessed data to csv files for future use.
+# Saving the preprocessed data to csv files.
 df_data.to_csv('data/cleaned_kidney_disease.csv', index=False)# Saving the cleaned data to a csv file.
 x_train.to_csv('data/x_train.csv', index=False)
 x_test.to_csv('data/x_test.csv', index=False)
