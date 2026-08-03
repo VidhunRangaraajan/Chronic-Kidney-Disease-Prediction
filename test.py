@@ -4,7 +4,7 @@
 # Website: https://www.vidhun.com
 # Github: https://github.com/VidhunRangaraajan
 # Repository: https://github.com/VidhunRangaraajan/Chronic-Kidney-Disease-Prediction
-# Requirements: None directly(uses predict_mode function from src/predict.py)
+# Requirements: None directly(uses predict_mode function from src/predict.py).
 # Usage: To check the functionality of the predict_mode function with sample inputs from out of the file.
 # Depends On: src/predict.py
 # Input Files: -
@@ -41,7 +41,7 @@ print(predict_mode({
   "pedal_edema": "yes",
   "anemia": "yes",
 }
-))#Output Sample 1: ['CKD', 1, 1, 1, 1, 1]
+))# Output Sample 1: ['CKD', 1, 1, 1, 1, 1]
 
 print(predict_mode({
   "age": "40",
