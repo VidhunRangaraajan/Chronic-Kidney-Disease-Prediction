@@ -36,7 +36,7 @@ for file in files:
     model_name = file.replace(".joblib", "").replace("_", " ").title()
     models[model_name[8:]] = load(file)
     
-# Function to predict the target variable using the loaded model.
+# Function to return the predictions of the loaded model which is given in parameters.
 def predict(model):
     y_pred = model.predict(x_test)
     return y_pred
