@@ -9,7 +9,7 @@
 # Depends On: -
 # Input Files: data/kidney_disease.csv
 # Output Files: data/cleaned_kidney_disease.csv, data/scaler.joblib, data/x_train.csv, data/x_test.csv, data/y_train.csv, data/y_test.csv
-# Notes: -
+# Notes: Requires the kidney_disease.csv file to be present in the data folder.
 # To Do: -
 
 # Importing required libraries.

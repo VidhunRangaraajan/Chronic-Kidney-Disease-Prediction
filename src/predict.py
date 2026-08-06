@@ -9,7 +9,7 @@
 # Depends On: -
 # Input Files: results/extra_trees_classifier.joblib, results/lightgbm.joblib, results/mlp_classifier.joblib, results/support_vector_machine.joblib, results/xgboost.joblib, data/scaler.joblib
 # Output Files: -
-# Notes: -
+# Notes: Requires the trained models and scaler to be present in the specified paths.
 # To Do: -
 
 # Importing necessary libraries.
